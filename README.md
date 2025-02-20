@@ -12,3 +12,7 @@ Every examples are maden with Azure studio, below the list of the portals:
 
 ## Describe photos
 This example shows the capability of Azure Vision to describe the content of photos. Only language avaiability, for now, is English.
+
+Video, below
+
+![DescribePhoto](https://github.com/user-attachments/assets/74b4482c-35c5-4763-b815-f8f76bebb504)
