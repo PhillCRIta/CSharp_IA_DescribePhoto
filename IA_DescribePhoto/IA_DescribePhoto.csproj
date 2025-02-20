@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<Target Name="CopyEmptyFolder" AfterTargets="Build">
+		<!-- Crea la cartella vuota nella directory di output -->
+		<MakeDir Directories="$(OutputPath)tempout" />
+	</Target>
+	
+	<ItemGroup>
+		<PackageReference Include="Azure.AI.Vision.ImageAnalysis" Version="1.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="tempout\" />
+		<Folder Include="tempin\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="tempin\tuscany.jpg">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Include tutti i file nella cartella 'tempout' -->
+		<Content Include="tempout\**\*">
+			<!-- Copia i file nella cartella di output sempre -->
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+</Project>
+
+
+ 
